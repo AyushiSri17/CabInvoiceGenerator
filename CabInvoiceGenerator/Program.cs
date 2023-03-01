@@ -12,10 +12,17 @@ namespace CabInvoiceGenerator
         {
             Console.WriteLine("Welcome to Cab Invoice Generator Problem");
 
-            Ride ride = new Ride(4,6);
             InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
-            double fare=invoiceGenerator.CalculateFare(ride);
-            Console.WriteLine(fare);//46
+            //Ride ride = new Ride(5,7);            
+            //double fare=invoiceGenerator.CalculateFare(ride);          
+            //Console.WriteLine(fare);//46//57
+            Ride[] rides=new Ride[]
+            {
+                new Ride(4,6),
+                new Ride(5,7),
+            };
+            double totalFare = invoiceGenerator.CalculateFare(rides);
+            Console.WriteLine(totalFare);
             Console.ReadLine();
         }
     }
