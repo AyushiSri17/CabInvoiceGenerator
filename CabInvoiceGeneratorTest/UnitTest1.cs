@@ -13,11 +13,11 @@ namespace CabInvoiceGeneratorTest
             {
                 //Arrange
                 InvoiceGenerator invoice = new InvoiceGenerator();
-                Ride ride = new Ride(4,6);
+                Ride ride = new Ride(5,7,RideType.PREMIUM);
                 //Act
                 double actual = invoice.CalculateFare(ride);
                 //Assert
-                Assert.AreEqual(actual, 46);
+                Assert.AreEqual(actual,89);
             }
 
         [TestMethod]
@@ -27,13 +27,13 @@ namespace CabInvoiceGeneratorTest
             InvoiceGenerator invoice = new InvoiceGenerator();
             Ride[] rides = new Ride[]
             {
-                new Ride(4,6),//46
-                new Ride(5,7),//57
+                new Ride(4,6,RideType.NORMAL),//46
+                new Ride(5,7,RideType.PREMIUM),//89
             };
             //Act
             double actual = invoice.CalculateFare(rides);
             //Assert
-            Assert.AreEqual(actual,103);
+            Assert.AreEqual(actual,135);
         }
 
     }
