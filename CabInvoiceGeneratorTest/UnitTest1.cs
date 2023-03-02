@@ -31,9 +31,10 @@ namespace CabInvoiceGeneratorTest
                 new Ride(5,7,RideType.PREMIUM),//89
             };
             //Act
-            double actual = invoice.CalculateFare(rides);
+            InvoiceSummary expected = new InvoiceSummary(rides.Length,135);
+            InvoiceSummary actual = invoice.CalculateFare(rides);
             //Assert
-            Assert.AreEqual(actual,135);
+            Assert.AreEqual(actual,expected);
         }
 
     }
